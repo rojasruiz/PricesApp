@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -22,8 +21,7 @@ public class PricesRepositoryIT {
     var prices = pricesRepository.findPrices(
         LocalDateTime.of(2020,6, 14, 0, 1, 0),
         35455,
-        1,
-        Sort.by("priority").descending());
+        1);
     
     assertThat(prices).isNotEmpty();
   }

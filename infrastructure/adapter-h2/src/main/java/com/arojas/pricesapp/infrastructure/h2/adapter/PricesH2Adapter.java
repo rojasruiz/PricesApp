@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
@@ -21,8 +20,7 @@ public class PricesH2Adapter implements PricesPersistence {
 
     @Override
     public List<Price> findPrices(LocalDateTime appDate, Integer productId, Integer brandId) {
-        return pricesRepository.findPrices(appDate, productId, brandId, 
-                                           Sort.by("priority").descending())
+        return pricesRepository.findPrices(appDate, productId, brandId)
                                .stream().map(p -> priceMapper.toDomain(p)).toList();
     }
 }
