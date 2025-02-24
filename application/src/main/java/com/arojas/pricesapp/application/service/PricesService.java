@@ -18,7 +18,6 @@ public class PricesService implements PricesAPIService {
 
   @Override
   public Optional<Price> getPrice(LocalDateTime appDate, Integer productId, Integer brandId) {
-    return pricesRepository.findPrices(appDate, productId, brandId)
-        .stream().findFirst();
+    return Optional.ofNullable(pricesRepository.findPrice(appDate, productId, brandId));
   }
 }
