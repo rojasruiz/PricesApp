@@ -23,6 +23,8 @@ public class PricesRepositoryIT {
         35455,
         1);
     
-    assertThat(prices).isNotNull();
+    assertThat(prices.getId()).isEqualTo(1);
+    assertThat(prices.getProductId()).isEqualTo(35455);
+    assertThat(prices.getEndDate()).isEqualTo(LocalDateTime.of(2020,12, 31,23,59,59));
   }
 }
